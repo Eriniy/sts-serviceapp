@@ -1,0 +1,83 @@
+body {
+    background-color: #31383D;
+    min-height: 100vh;
+}
+
+.preview {
+    color: #F0F8FF;
+    
+}
+
+.logoname-text {
+    font-family: 'Langar';
+    font-size: 10vw;
+}
+
+.label-text {
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+.left-col {
+    margin-top: 10%;
+}
+
+.right-col {
+    padding-right: 0;
+}
+
+.preview-img {
+    width: 100%;
+    object-fit: fill;
+}
+
+.to-start-btn {
+    display: block;
+    background: linear-gradient(90deg, #94ABFF 11.23%, #422BD2 97.04%);
+    border-radius: 50px;
+    color: #F0F8FF;
+    border: none;
+    width: 100%;
+    font-size: 2vw;
+    padding: 10px 0;
+
+}
+
+.to-start-btn:hover {
+    background: linear-gradient(90deg, #C6EDEC 11.23%, #0D6EFD 97.04%);
+}
+
+.for-btn {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.for-btn a{
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .container {
+        margin-right: 0;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .preview-img {
+        display: none;
+    }
+
+    .logoname-text {
+        font-size: 20vw;
+    }
+    .to-start-btn {
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 991px) {
+    .label-text {
+        margin: 30px 0;
+    }
+}    

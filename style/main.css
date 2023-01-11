@@ -1,0 +1,84 @@
+body {
+    background-color: #F0F8FF;
+    color: #000;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.a{
+    border: 2px solid rgb(46, 124, 214);
+}
+
+.date {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    background-color: #94ABFF;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.date-picker {
+    /* width: 100%; */
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.3vw;
+}
+
+.filter {
+    background-color: #31383D;
+    border-radius: 25px;
+    padding: 10px;
+    color: #F0F8FF;
+    /* height: 300px; */
+}
+
+.accordion {
+    background-color: #31383D;
+    border: none;
+    color: #F0F8FF;
+}
+
+.accordion-item {
+    border: none;
+    background-color: #31383D;
+    color: #F0F8FF;
+}
+
+.accordion-button {
+    background-color: #31383D;
+    border: none;
+    color: #F0F8FF;
+}
+
+.accordion-button::after {
+    background-image: url(/img/start-arrow.svg);
+}
+
+.accordion-button:focus {
+    background-color: #31383D;
+    border: none;
+    box-shadow:none;
+    color: #94ABFF;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #31383D;
+    color: #94ABFF
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url(/img/arrow.svg);
+}
+.checkbox-item {
+    margin-bottom: 10px;
+}
+
+
+.form-check-label {
+    padding-left: 10%;
+}
