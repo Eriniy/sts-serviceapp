@@ -1,6 +1,8 @@
 body {
     background-color: #F0F8FF;
+    /* background-color: #006ece; */
     color: #000;
+    /* height: 100vh; */
 }
 
 .container {
@@ -9,6 +11,7 @@ body {
 
 .a{
     border: 2px solid rgb(46, 124, 214);
+    max-height: 100vh;
 }
 
 .date {
@@ -18,7 +21,7 @@ body {
     background-color: #94ABFF;
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .date-picker {
@@ -76,9 +79,80 @@ body {
 }
 .checkbox-item {
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hidden-block {
+    display: none;
+}
+
+.accordion-body{
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.accordion-body::-webkit-scrollbar {
+    /* display: none */
+    width: 5px;
+    background-color:#31383D;
+    border-radius: 24px;
+}
+
+.accordion-body::-webkit-scrollbar-thumb{
+    background-color: #484a4f;
+    border-radius: 24px;
+    height: 25px;
+}
+
+#clearArea, #clearSport{
+    position: sticky;
+    bottom: -10px;
+    float: right;
+    border-radius: 30px;
+    padding: 5px;
+    width: 70px;
+    background-color: #1e2b365a;
+    color: #f0f8ff47;
+    border: none;
+    transition: 0.2s linear;
+
+}
+
+#clearArea:hover,
+#clearSport:hover {
+    background-color: #1e2b36;
+    color: #f0f8ff;
+    transition: 0.2s linear;
 }
 
 
-.form-check-label {
-    padding-left: 10%;
+#info-mark {
+    background-color: rgb(160, 183, 183);
+}
+
+.mark-item {
+    border-top: 1px solid #000;
+}
+
+.mark-item .row{
+    align-items: center;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.desc {
+    margin-bottom: 0;
+}
+
+.btn-show-play {
+    float: right;
+    background-color: #94ABFF;
+    border-radius: 20px;
+    padding: 2px 20px;
+    font-size: 12px;
+    text-decoration: none;
 }
