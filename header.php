@@ -6,11 +6,14 @@
 
         <div class="collapse navbar-collapse" id="collapseExample" role="navigation">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Главная</a>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo ((isset($_GET['active'])) ? 'active' : '') ?>" href="#">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Мои игры</a>
+                    <a class="nav-link <?php echo ((isset($_GET['myPlays'])) ? 'active' : '') ?>" href="#">Мои игры</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo ((isset($_GET['newPlay'])) ? 'active' : '') ?>" href="#">Создать игру</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Инструкция</a>
@@ -19,7 +22,7 @@
         </div>
 
         <div class="press-right">
-            <a class="acc-link press-right" href="#"><img src="/img/profile.svg" class="account"></a>
+            <a class="acc-link press-right" href="profile.php"><img src="/img/profile.svg" class="account"></a>
         </div>
     </nav>
 </header>

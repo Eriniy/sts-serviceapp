@@ -86,6 +86,6 @@ if (!$result || mysqli_num_rows($result) == 0) {
 session_start();
 $_SESSION["user"] = mysqli_fetch_assoc($result);
 
-header("Location: new1.php");
+header("Location: new1.php?active=main");
 
 ?>

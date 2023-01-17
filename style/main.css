@@ -156,3 +156,16 @@ body {
     font-size: 12px;
     text-decoration: none;
 }
+
+.hint {
+    background-color: rgb(243, 233, 242);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+.comfort {
+    width: 80%;
+}

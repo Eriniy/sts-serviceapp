@@ -48,12 +48,12 @@ else
         ?>
 
             myMap.geoObjects.add(new ymaps.Placemark([<?php echo $row['longitude'] ?>, <?php echo $row['latitude'] ?>], {
-                iconContent: "<?php echo $row['place_name'] ?>",
-                hintContent: "<?php echo $row['address'] ?>", // при наведении
+                hintContent: '<?php echo $row['address'] ?>', // при наведении
                 id: <?php echo $row['play_place'] ?>,
                 address: "<?php echo rawurlencode($row['address']) ?>",
+                ad: "dasd asds asdas"
             }, {
-                'preset': 'islands#darkBlueStretchyIcon'
+                'preset': 'islands#pinkStretchyIcon'
             }));
 
         <?php
