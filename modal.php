@@ -1,24 +1,38 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Создание группы</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p id="idPlay">hhh</p>
-
+<!-- <p id="idPlay"><?php echo $_GET['id'] ?></p> -->
+<div class="body-conainer">
+    <div class="row mb-4">
+        <div class="col-6">
+            <p class="upper-title">Участники команды</p>
+        </div>
+        <div class="col-6">
+            <div class="config-play">
+                <p>12 октября 12:00</p>
+                <p>Волейбол</p>
             </div>
         </div>
     </div>
-</div>
+    <p>ответственный за инвентарь</p>
+    <div class="inventary">
 
-<script>
-    function getIdModal(id) {
-        console.log(id);
-        el = document.getElementById('idPlay');
-        el.innetHTML = id;
-    }
-</script>
+        <div class="inventary-box">
+            <div class="item">
+                Username username
+                <img src="/img/krest.svg" alt="удалить" style="float: right; height: 90%">
+            </div>
+        </div>
+        <button class="btn btn-primary">+взять</button>
+    </div>
+    <p>команда</p>
+    <div class="team-container">
+
+        <div class="team-box">
+            <div class="team-item">
+                Username username
+                <img src="/img/krest.svg" alt="удалить" style="float: right; height: 90%">
+            </div>
+            <div class="add-to-team"><button class="btn btn-primary">+вступить</button></div>
+
+
+        </div>
+    </div>
+</div>

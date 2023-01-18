@@ -1,0 +1,138 @@
+body {
+    height: 100vh;
+    background-color: #31383D;
+    color: #F0F8FF;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+.check {
+    justify-content: center;
+}
+
+.main-part {
+}
+
+.a {
+    border: 1px solid rgb(57, 193, 231);
+}
+
+.more-play {
+    height: 650px;
+    width: 100%;
+}
+
+.all-plays {
+    height: 650px;
+    overflow-x: auto;
+
+}
+
+.all-plays::-webkit-scrollbar {
+    /* display: none */
+    width: 5px;
+    background-color: #31383D;
+    border-radius: 24px;
+}
+
+.all-plays::-webkit-scrollbar-thumb {
+    background-color: #31383D;
+    border-radius: 24px;
+    height: 25px;
+}
+
+.more-container {
+    padding: 20px;
+    width: 85%;
+    margin: 0 auto;
+
+}
+
+.more-info {
+    background-color: #666D75;
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.all-container {
+    padding: 20px;
+
+}
+
+.play-item{
+    background-color: #212529;
+    height: 160px;
+    width: 80%;
+    border-radius: 25px;
+    margin: 0 auto;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+.decorate {
+    background-color: #94ABFF;
+    width: 10px;
+    height: 120px;
+    border-radius: 25px;
+}
+
+.info-block {
+    padding: 0 30px;
+    padding-top: 50px;
+    
+}
+
+.address, .datetime, .namesport, .teamlist{
+    font-size: 20px;
+}
+
+.team-container {
+    background-color: #31383D;
+    height: 250px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.team-container::-webkit-scrollbar {
+    display: none;
+}
+
+.team-item {
+    vertical-align: middle;
+    margin-bottom: 15px;
+
+}
+
+.item-text {
+    margin: 0;
+}
+
+.nickname-title {
+    font-weight: bold;
+    color: #94ABFF;;
+}
+
+.block-out-team {
+    float: right;
+}
+
+.btn-out-team {
+    color: #B9BBBE;
+    background-color: #4e535a;
+    width: 180px;
+    transition: 0.2s;
+
+}
+
+.btn-out-team:hover {
+    background-color: #575c63;
+
+}

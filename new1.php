@@ -25,7 +25,7 @@ include("connectdb.php");
     <!-- <a href="new2.php">Click</a> -->
     <div class="container">
         <div class="row" style="height: 85vh;">
-            <div class="col-3 a">
+            <div class="col-3 col-right">
                 <div class="date">
                     <div class="row">
                         <div class="col">
@@ -77,7 +77,6 @@ include("connectdb.php");
                         </h2>
                         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                             <div class="accordion-body">
-                                <!-- <form> -->
                                 <div class="form-container">
                                     <form>
                                         <?php
@@ -90,15 +89,8 @@ include("connectdb.php");
                                         }
 
                                         ?>
-                                        <!-- <div class="checkbox-item">
-                                            <input class="form-check-input" type="radio" name="area" id="inlineRadio1" value=<?php echo rawurlencode('район Отрадное') ?> onchange="goLinkWithValue();">
-                                            <label class="form-check-label" for="inlineRadio1">Отрадное</label>
-                                        </div> -->
                                     </form>
-
-
                                 </div>
-                                <!-- </form> -->
                                 <input class="btn btn-primary" type="button" value="Clear" id="clearArea">
 
                             </div>
@@ -109,7 +101,7 @@ include("connectdb.php");
                 </div>
 
             </div>
-            <div class="col-9 a">
+            <div class="col-9">
                 <div id="map-view">
                     <?php include('getMap.php'); ?>
                 </div>
@@ -117,10 +109,25 @@ include("connectdb.php");
         </div>
     </div>
 
+    <button type='button' class='btn btn-show-play' data-bs-id='1' data-bs-toggle='modal' data-bs-target='#exampleModal' id='click-modal'>Вступить</button>
 
 
-    <?php include("modal.php"); ?>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Создание группы</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <img src="/img/icn_close.svg" alt="">
+                    </button>
+                </div>
+                <div class="modal-body" id="body-modal">
 
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
@@ -156,4 +163,14 @@ include("connectdb.php");
         for (var i = 0; i < ele.length; i++) ele[i].checked = false;
         goLinkWithValue()
     }
+
+    $('#click-modal').click(function() {
+        // $.ajax({
+        //     url: 'modal.php?id=1',
+        //     method: 'GET'
+        // });
+        // window.location.replace('<URL of the new page>');
+        $("#body-modal").load("modal.php?id=2");
+
+    });
 </script>

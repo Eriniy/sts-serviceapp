@@ -1,16 +1,13 @@
 <?php
 include('connectdb.php');
 
-
-
-
 $placeInfo = mysqli_query($connect, "SELECT * FROM Places WHERE place_id = " . $_GET['id']);
 $getPlaceInfo = mysqli_fetch_assoc($placeInfo);
 $getMark = mysqli_query($connect, "SELECT Places.*, Plays.*, Sports.sport_name FROM Places JOIN Plays JOIN Sports
 ON Plays.play_sport = Sports.sport_id AND Plays.play_place = Places.place_id
 WHERE Plays.play_place = " . $_GET['id'] . " AND DATE(Plays.play_datetime) = " . $_GET['date']);
 
-$contentPlace = "<input class='btn btn-primary' type='button' value='Закрыть' id='close-place'><br>
+$contentPlace = "<button class='btn' id='close-place' type='button' style='float: right;'><img src='/img/icn_close.svg' alt='закрыть' style='width: 80%'></button><br>
 <div class='hint'>
         <h5>" . $_GET['address'] . "</h5>
         <div class='row'>";

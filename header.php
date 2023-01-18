@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse" id="collapseExample" role="navigation">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ((isset($_GET['active'])) ? 'active' : '') ?>" href="#">Главная</a>
+                    <a class="nav-link <?php echo (($_GET['active'] == 'main') ? 'active' : '') ?>" href="new1.php?active=main">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ((isset($_GET['myPlays'])) ? 'active' : '') ?>" href="#">Мои игры</a>
+                    <a class="nav-link <?php echo (($_GET['active'] == 'myPlays') ? 'active' : '') ?>" href="myPlays.php?active=myPlays">Мои игры</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo ((isset($_GET['newPlay'])) ? 'active' : '') ?>" href="#">Создать игру</a>
+                    <a class="nav-link <?php echo ((isset($_GET['activey'])) ? 'active' : '') ?>" href="#">Создать игру</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Инструкция</a>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="press-right">
-            <a class="acc-link press-right" href="profile.php"><img src="/img/profile.svg" class="account"></a>
+            <a class="acc-link press-right" href="profile.php?active=profile"><img src="/img/profile.svg" class="account <?php echo (($_GET['active'] == 'profile') ? 'active-profile' : '') ?>"></a>
         </div>
     </nav>
 </header>
@@ -58,5 +58,9 @@
 
     .account:hover {
         box-shadow: 0 0 5px 2px #F0F8FF;
+    }
+
+    .active-profile {
+        box-shadow: 0 0 5px 2px #94ABFF;
     }
 </style>

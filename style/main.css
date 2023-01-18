@@ -1,5 +1,5 @@
 body {
-    background-color: #F0F8FF;
+    background-color: #31383D;
     /* background-color: #006ece; */
     color: #000;
     /* height: 100vh; */
@@ -9,9 +9,11 @@ body {
     margin-top: 20px;
 }
 
-.a{
-    border: 2px solid rgb(46, 124, 214);
-    max-height: 100vh;
+.col-right {
+    background-color: #212529;
+    border-radius: 10px;
+    padding: 20px;
+    padding-bottom: 10px;
 }
 
 .date {
@@ -89,7 +91,7 @@ body {
 }
 
 .accordion-body{
-    max-height: 250px;
+    max-height: 240px;
     overflow-y: auto;
 }
 
@@ -113,7 +115,7 @@ body {
     border-radius: 30px;
     padding: 5px;
     width: 70px;
-    background-color: #1e2b365a;
+    background-color: #21252930;
     color: #f0f8ff47;
     border: none;
     transition: 0.2s linear;
@@ -122,22 +124,27 @@ body {
 
 #clearArea:hover,
 #clearSport:hover {
-    background-color: #1e2b36;
+    background-color: #212529;
     color: #f0f8ff;
     transition: 0.2s linear;
 }
 
 
 #info-mark {
-    background-color: rgb(160, 183, 183);
+    background-color: #31383D;
+    border-radius: 10px;
+    padding: 5px;
+    color: #F0F8FF;
 }
 
 .mark-item {
     border-top: 1px solid #000;
+    margin-top: 5px;
 }
 
 .mark-item .row{
     align-items: center;
+    
 }
 
 .center-text{
@@ -150,22 +157,128 @@ body {
 
 .btn-show-play {
     float: right;
-    background-color: #94ABFF;
+    background-color: #0D6EFD;
     border-radius: 20px;
     padding: 2px 20px;
     font-size: 12px;
     text-decoration: none;
+    margin-top: 5px;
 }
 
 .hint {
-    background-color: rgb(243, 233, 242);
     width: 100%;
     text-align: center;
     padding: 10px;
+    margin-top: 10px;
 }
 
 
 
 .comfort {
     width: 80%;
+}
+
+/* ---!! MODAL PART !!--- */
+.modal {
+    top: 55px
+}
+
+.modal-dialog {
+    margin-right: 0;
+    width: 60%;
+    float: right;
+
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: none;
+    }
+
+}
+
+.modal-content {
+    min-height: 620px;
+    background-color: #94ABFF;
+    color: #F0F8FF;
+}
+
+.close {
+    background: none;
+    border: none;
+}
+
+.modal-header {
+    border: none;
+    background-color: #212529;
+    border-radius: 0 0 10px 10px;
+    margin: 0 20px;
+}
+
+.modal-body {
+    font-size: 20px;
+    background-color: #212529;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.upper-title{
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.config-play {
+    float: right;
+}
+.config-play p{
+    color: #B9BBBE;
+    margin: 0;
+}
+
+.inventary{
+    display: flex;
+    flex-direction: row;
+}
+.inventary-box{
+    border: 2px solid #F0F8FF;
+    height: 60px;
+    width: 40%;
+    display: flex;
+    padding-left: 10px;
+}
+
+.team-box {
+    width: 80%;
+    border: 2px solid #F0F8FF;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 300px;
+    align-items: center;
+}
+
+.team-box::-webkit-scrollbar {
+    display: none;
+}
+
+.item {
+    vertical-align: middle;
+    color: #212529;
+    background-color: #F0F8FF;
+    height: 45px;
+    width: 300px;
+    margin: auto 0;
+    padding: 10px;
+
+}
+
+.team-item {
+    vertical-align: middle;
+    color: #212529;
+    background-color: #F0F8FF;
+    height: 45px;
+    width: 300px;
+    padding: 10px;
+    margin: 5px;
 }
