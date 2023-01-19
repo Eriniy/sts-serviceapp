@@ -37,7 +37,7 @@ while ($row = mysqli_fetch_assoc($getMark)) {
                 <p class='desc'>время: " . $teamInfo['time'] . "</p>
                 <p class='desc'>спорт: " . $row['sport_name'] . "</p>
                 <p class='desc'>команда: " . $teamInfo['teamCount'] . "/" . $row['play_site'] . " чел</p>
-                <button type='button' class='btn btn-show-play' data-bs-id='1'  data-bs-toggle='modal' data-bs-target='#exampleModal' id='click-modal' onclick='getIdModal(" . $row['play_id'] . ")'>Вступить</button>
+                <button type='button' class='btn btn-show-play'  data-bs-toggle='modal' data-bs-target='#exampleModal' id='click-modal' name='" . $row['play_id'] . "'>Вступить</button>
             </div>
             
         </div>
@@ -57,10 +57,5 @@ echo $contentPlace;
         var old = document.getElementById("filter");
         info.style.display = 'none';
         old.style.display = 'block';
-    }
-
-    function show_play(play) {
-        console.log(play);
-        return play;
     }
 </script>

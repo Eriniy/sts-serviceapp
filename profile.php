@@ -90,7 +90,7 @@ include("session.php");
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Изменить</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="updateUser.php" method="POST">
+                <form action="back-user.php" method="POST">
                     <div class="modal-body">
 
                         <div class="mb-3">

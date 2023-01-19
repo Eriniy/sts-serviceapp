@@ -1,4 +1,13 @@
 <!-- <p id="idPlay"><?php echo $_GET['id'] ?></p> -->
+<?php
+include('connectdb.php');
+include('session.php');
+
+$idPlays = mysqli_query($connect, "SELECT *, DATE_FORMAT(Plays.play_datetime,'%d/%m %H:%i') as formatDate FROM Places JOIN Plays JOIN Sports ON Plays.play_place = Places.place_id AND Plays.play_sport = Sports.sport_id
+WHERE Plays.play_id = " . $_GET['id']);
+$getIdPlays = mysqli_fetch_assoc($idPlays);
+
+?>
 <div class="body-conainer">
     <div class="row mb-4">
         <div class="col-6">
@@ -6,8 +15,8 @@
         </div>
         <div class="col-6">
             <div class="config-play">
-                <p>12 октября 12:00</p>
-                <p>Волейбол</p>
+                <p><?php echo $getIdPlays['formatDate'] ?></p>
+                <p><?php echo $getIdPlays['sport_name'] ?></p>
             </div>
         </div>
     </div>
@@ -15,22 +24,80 @@
     <div class="inventary">
 
         <div class="inventary-box">
-            <div class="item">
-                Username username
-                <img src="/img/krest.svg" alt="удалить" style="float: right; height: 90%">
-            </div>
+            <?php
+            if ($getIdPlays['inventory_user'] == '') {
+            ?>
+                <button class="btn btn-primary" id="plusInventoryUser">+взять</button>
+
+            <?php
+            } else {
+                $getInventory = mysqli_query($connect, "SELECT Users.* FROM Plays JOIN Users ON Plays.inventory_user = Users.user_id WHERE Plays.play_id =" . $_GET['id']);
+                $getInventory = mysqli_fetch_assoc($getInventory);
+            ?>
+                <button class="btn btn-primary disabled" id="plusInventoryUser">+взять</button>
+                <div class="item">
+                    <?php echo $getInventory['user_lastname'] ?> <?php echo $getInventory['user_firstname'] ?>
+                    <img src="/img/krest.svg" id="deleteInventory" alt="удалить" style="float: right; height: 90%">
+                </div>
+            <?php
+            }
+            ?>
+
         </div>
-        <button class="btn btn-primary">+взять</button>
+
     </div>
-    <p>команда</p>
+    <?php
+    $getCountTeamPlay = mysqli_query($connect, "SELECT COUNT(*) as teamCount, Plays.play_site FROM Plays JOIN Teams ON Teams.team_play = Plays.play_id
+WHERE Plays.play_id = " . $_GET['id'] . "
+GROUP BY Plays.play_id");
+    $getCountTeamPlay = mysqli_fetch_assoc($getCountTeamPlay);
+    ?>
+    <div class="row mt-2">
+        <div class="col-6">
+            <p>команда</p>
+        </div>
+        <div class="col-6">
+            свободных мест: <?php echo $getCountTeamPlay['teamCount'] ?>/<?php echo $getCountTeamPlay['play_site'] ?>
+        </div>
+    </div>
+
     <div class="team-container">
 
         <div class="team-box">
-            <div class="team-item">
-                Username username
-                <img src="/img/krest.svg" alt="удалить" style="float: right; height: 90%">
-            </div>
-            <div class="add-to-team"><button class="btn btn-primary">+вступить</button></div>
+            <?php
+            $userTeam = mysqli_query($connect, "SELECT Users.* FROM Users JOIN Teams ON Teams.team_user = Users.user_id
+WHERE Teams.team_play = " . $_GET['id']);
+            $checkBtn = 1;
+            while ($row = mysqli_fetch_assoc($userTeam)) {
+            ?>
+                <div class="team-item">
+                    <?php
+                    echo $row['user_lastname'];
+                    echo " ";
+                    echo $row['user_firstname'];
+                    if ($row['user_id'] == $_SESSION['user']['user_id']) {
+                        $checkBtn = 0;
+                    ?>
+                        <img src="/img/krest.svg" alt="удалить" class="deleteFromTeam">
+                    <?php
+                    }
+                    ?>
+                </div>
+            <?php
+            }
+
+            ?>
+
+
+            <!-- BUTTON INSERT TEAM-->
+            <?php
+            if ($getCountTeamPlay['teamCount'] == $getCountTeamPlay['play_site'] || $checkBtn == 0) {
+            ?>
+                <div class="add-to-team"><button class="btn btn-primary disabled" id="insertTeam">+вступить</button></div>
+            <?php
+            } else { ?>
+                <div class="add-to-team"><button class="btn btn-primary" id="insertTeam">+вступить</button></div>
+            <?php } ?>
 
 
         </div>

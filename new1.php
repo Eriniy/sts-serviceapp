@@ -109,7 +109,7 @@ include("connectdb.php");
         </div>
     </div>
 
-    <button type='button' class='btn btn-show-play' data-bs-id='1' data-bs-toggle='modal' data-bs-target='#exampleModal' id='click-modal'>Вступить</button>
+    <button type='button' class='btn btn-show-play' data-bs-toggle='modal' data-bs-target='#exampleModal' id='click-modal' name="asdas">Вступить</button>
 
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
@@ -164,13 +164,17 @@ include("connectdb.php");
         goLinkWithValue()
     }
 
-    $('#click-modal').click(function() {
-        // $.ajax({
-        //     url: 'modal.php?id=1',
-        //     method: 'GET'
-        // });
-        // window.location.replace('<URL of the new page>');
-        $("#body-modal").load("modal.php?id=2");
+    // $('#click-modal').click(function() {
+    //     console.log(this.name)
+    //     // var idPlay = document.getElementById('click-modal').id
+    //     // console.log(idPlay)
+    //     $("#body-modal").load("modal.php?id=1");
 
-    });
+    // });
+    const placeModal = document.getElementById('exampleModal')
+    placeModal.addEventListener('show.bs.modal', event => {
+        const button = event.relatedTarget
+        // console.log(button.name)
+        $("#body-modal").load("modal.php?id=" + button.name);
+    })
 </script>
