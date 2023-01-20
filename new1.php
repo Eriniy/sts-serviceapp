@@ -129,6 +129,23 @@ include("connectdb.php");
         </div>
     </div>
 
+    <!-- <div class="modal fade" id="2modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Создание группы</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <img src="/img/icn_close.svg" alt="">
+                    </button>
+                </div>
+                <div class="modal-body" id="body-modal">
+
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+
 </body>
 
 </html>
@@ -177,4 +194,9 @@ include("connectdb.php");
         // console.log(button.name)
         $("#body-modal").load("modal.php?id=" + button.name);
     })
+
+    // document.getElementById('qwe').onclick = function() {
+    //     console.log('1212');
+    //     // $("#body-modal").load("modal.php?id=" + button.name);
+    // }
 </script>

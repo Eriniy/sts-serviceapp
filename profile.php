@@ -25,7 +25,7 @@ include("session.php");
             <div class="username">
                 <div class="row">
                     <div class="col-6">
-                        <p class="name">Username</p>
+                        <p class="name"><?php echo $getUser['user_nickname'] ?></p>
                     </div>
                     <div class="col-6">
                         <div class="setting">Настройка профиля</div>

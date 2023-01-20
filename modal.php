@@ -1,4 +1,3 @@
-<!-- <p id="idPlay"><?php echo $_GET['id'] ?></p> -->
 <?php
 include('connectdb.php');
 include('session.php');
@@ -27,22 +26,21 @@ $getIdPlays = mysqli_fetch_assoc($idPlays);
             <?php
             if ($getIdPlays['inventory_user'] == '') {
             ?>
-                <button class="btn btn-primary" id="plusInventoryUser">+взять</button>
+                <button class="btn btn-primary" formmethod="POST" name="plusInventoryUser" id="insertInventory" value="<?php echo $_GET['id'] ?>">+взять</button>
 
             <?php
             } else {
                 $getInventory = mysqli_query($connect, "SELECT Users.* FROM Plays JOIN Users ON Plays.inventory_user = Users.user_id WHERE Plays.play_id =" . $_GET['id']);
                 $getInventory = mysqli_fetch_assoc($getInventory);
             ?>
-                <button class="btn btn-primary disabled" id="plusInventoryUser">+взять</button>
+                <button class="btn btn-primary disabled" name="plusInventoryUser" id="insertInventory" formmethod="POST">+взять</button>
                 <div class="item">
                     <?php echo $getInventory['user_lastname'] ?> <?php echo $getInventory['user_firstname'] ?>
-                    <img src="/img/krest.svg" id="deleteInventory" alt="удалить" style="float: right; height: 90%">
+                    <img src="/img/krest.svg" id="deleteInventory" alt="удалить" class="deleteInventory">
                 </div>
             <?php
             }
             ?>
-
         </div>
 
     </div>
@@ -78,7 +76,7 @@ WHERE Teams.team_play = " . $_GET['id']);
                     if ($row['user_id'] == $_SESSION['user']['user_id']) {
                         $checkBtn = 0;
                     ?>
-                        <img src="/img/krest.svg" alt="удалить" class="deleteFromTeam">
+                        <img src="/img/krest.svg" alt="удалить" class="deleteFromTeam" id="deleteTeam">
                     <?php
                     }
                     ?>
@@ -93,13 +91,46 @@ WHERE Teams.team_play = " . $_GET['id']);
             <?php
             if ($getCountTeamPlay['teamCount'] == $getCountTeamPlay['play_site'] || $checkBtn == 0) {
             ?>
-                <div class="add-to-team"><button class="btn btn-primary disabled" id="insertTeam">+вступить</button></div>
+                <div class="add-to-team"><button class="btn btn-primary disabled" name="insertTeam" id="insertTeam" value="<?php echo $_GET['id'] ?>">+вступить</button></div>
             <?php
             } else { ?>
-                <div class="add-to-team"><button class="btn btn-primary" id="insertTeam">+вступить</button></div>
+                <div class="add-to-team"><button type="button" class="btn btn-primary" name="insertTeam" id="insertTeam" value="<?php echo $_GET['id'] ?>">+вступить</button></div>
             <?php } ?>
 
 
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('insertTeam').onclick = function() {
+        sendAjaxForm("back-team.php?par=insertTeam");
+    }
+    document.getElementById('insertInventory').onclick = function() {
+        sendAjaxForm("back-team.php?par=insertInventory");
+    }
+
+
+    document.getElementById('deleteTeam').onclick = function() {
+        sendAjaxForm("back-team.php?par=deleteTeam");
+    }
+    document.getElementById('deleteInventory').onclick = function() {
+        sendAjaxForm("back-team.php?par=deleteInventory");
+    }
+
+
+    function sendAjaxForm(url) {
+        jQuery.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                play: <?php echo $_GET['id'] ?>
+            },
+            success: function(response) { //Данные отправлены успешно
+                console.log(response);
+                $("#body-modal").load("modal.php?id=" + <?php echo $_GET['id'] ?>);
+                // $("#info-mark").reload();
+            },
+        });
+    }
+</script>
