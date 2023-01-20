@@ -45,7 +45,8 @@ $getIdPlays = mysqli_fetch_assoc($idPlays);
 
     </div>
     <?php
-    $getCountTeamPlay = mysqli_query($connect, "SELECT COUNT(*) as teamCount, Plays.play_site FROM Plays JOIN Teams ON Teams.team_play = Plays.play_id
+    $getCountTeamPlay = mysqli_query($connect, "SELECT COUNT(Teams.team_play) as teamCount, Plays.play_site FROM Plays LEFT JOIN Teams
+ON Plays.play_id = Teams.team_play
 WHERE Plays.play_id = " . $_GET['id'] . "
 GROUP BY Plays.play_id");
     $getCountTeamPlay = mysqli_fetch_assoc($getCountTeamPlay);

@@ -109,9 +109,6 @@ include("connectdb.php");
         </div>
     </div>
 
-    <button type='button' class='btn btn-show-play' data-bs-toggle='modal' data-bs-target='#exampleModal' id='click-modal' name="asdas">Вступить</button>
-
-
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -129,30 +126,12 @@ include("connectdb.php");
         </div>
     </div>
 
-    <!-- <div class="modal fade" id="2modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">Создание группы</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <img src="/img/icn_close.svg" alt="">
-                    </button>
-                </div>
-                <div class="modal-body" id="body-modal">
-
-
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 </body>
 
 </html>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script>
-    // import urllib;
-
     function goLinkWithValue() {
         var date = document.getElementById("date").value;
         var sport = "";
@@ -180,23 +159,11 @@ include("connectdb.php");
         for (var i = 0; i < ele.length; i++) ele[i].checked = false;
         goLinkWithValue()
     }
-
-    // $('#click-modal').click(function() {
-    //     console.log(this.name)
-    //     // var idPlay = document.getElementById('click-modal').id
-    //     // console.log(idPlay)
-    //     $("#body-modal").load("modal.php?id=1");
-
-    // });
+    
     const placeModal = document.getElementById('exampleModal')
     placeModal.addEventListener('show.bs.modal', event => {
         const button = event.relatedTarget
         // console.log(button.name)
         $("#body-modal").load("modal.php?id=" + button.name);
     })
-
-    // document.getElementById('qwe').onclick = function() {
-    //     console.log('1212');
-    //     // $("#body-modal").load("modal.php?id=" + button.name);
-    // }
 </script>
